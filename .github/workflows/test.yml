@@ -1,0 +1,62 @@
+name: 'build-test'
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  build: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          npm install
+      - run: |
+          npm run all
+  test: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+        id: report-summary
+        with:
+          reportPath: ./__tests__/test-report/mochawesome.json
+      - run: |
+          echo "Slack result is ${{steps.report-summary.outputs.slackReport}}"
+      - run: |
+          echo "Github result is ${{steps.report-summary.outputs.githubReport}}"
+
+      - uses: ./
+        id: report-passed-summary
+        with:
+          reportPath: ./__tests__/test-report/mochawesome_passed.json
+      - run: |
+          echo "Slack result is ${{steps.report-passed-summary.outputs.slackReport}}"
+      - run: |
+          echo "Github result is ${{steps.report-passed-summary.outputs.githubReport}}"
+
+      - uses: ./
+        id: report-passed-summary-exclude-phrase
+        with:
+          reportPath: ./__tests__/test-report/mochawesome_passed.json
+          failedOnlyForSlack: true
+          cleanSpecifcPhrases: "AssertionError: "
+      - run: |
+          echo "Slack result is ${{steps.report-passed-summary-exclude-phrase.outputs.slackReport}}"
+      - run: |
+          echo "Github result is ${{steps.report-passed-summary-exclude-phrase.outputs.githubReport}}"
+
+      - uses: ./
+        id: report-passed-summary-invalid-array
+        with:
+          reportPath: ./__tests__/test-report/mochawesome_invalid_array.json
+          failedOnlyForSlack: true
+          cleanSpecifcPhrases: "AssertionError: "
+      - run: |
+          echo "Slack result is ${{steps.report-passed-summary-invalid-array.outputs.slackReport}}"
+      - run: |
+          echo "Github result is ${{steps.report-passed-summary-invalid-array.outputs.githubReport}}"
+
+          

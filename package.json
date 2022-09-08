@@ -1,0 +1,46 @@
+{
+  "name": "phploc-results-comparison",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Generate slack and github summary from test report",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "test": "jest",
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vjaceslavsl/test-report-summary.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "testreport",
+    "slack",
+    "github"
+  ],
+  "author": "Vjaceslavs Lukasevics",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.8.2",
+    "slack-table": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.14",
+    "@typescript-eslint/parser": "^5.36.1",
+    "@vercel/ncc": "^0.31.1",
+    "eslint": "^8.23.0",
+    "eslint-plugin-github": "^4.3.6",
+    "eslint-plugin-jest": "^27.0.1",
+    "jest": "^27.2.5",
+    "js-yaml": "^4.1.0",
+    "prettier": "2.7.1",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.8.2"
+  }
+}

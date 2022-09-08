@@ -1,0 +1,175 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 1,
+    "pending": 0,
+    "failures": 3,
+    "start": "2022-05-11T08:02:45.302Z",
+    "end": "2022-05-11T08:02:50.617Z",
+    "duration": 5315,
+    "testsRegistered": 4,
+    "passPercent": 25,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1a342006-18df-4f20-895a-6d69fa2a05d4",
+      "title": "",
+      "fullFile": "tests/some-test/experiment.spec.ts",
+      "file": "tests/some-test/experiment.spec.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "15e009cd-b542-4739-864c-5df2ed7303b1",
+          "title": "Test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test 1",
+              "fullTitle": "Test suite Test 1",
+              "timedOut": null,
+              "duration": 573,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "expect({ a: 1, b: 2 }).to.deep.include({ a: 3, b: 3 });",
+              "err": {
+                "message": "AssertionError: expected { a: 1, b: 2 } to have deep property 'a' of 3, but got 1",
+                "estack": "AssertionError: expected { a: 1, b: 2 } to have deep property 'a' of 3, but got 1\n    at Context.eval (https://github.com/__cypress/tests?p=tests/some-test/experiment.spec.ts:100:40)",
+                "diff": "- 1\n+ 3\n"
+              },
+              "uuid": "2de758d2-d0c3-4040-ac6e-dbc9549d85b9",
+              "parentUUID": "15e009cd-b542-4739-864c-5df2ed7303b1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test 2",
+              "fullTitle": "Test suite Test 2",
+              "timedOut": null,
+              "duration": 201,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "expect('true').to.be('true');",
+              "err": {
+                "message": "TypeError: expect(...).to.be is not a function",
+                "estack": "TypeError: expect(...).to.be is not a function\n    at Context.eval (https://github.com/__cypress/tests?p=tests/some-test/experiment.spec.ts:103:27)",
+                "diff": null
+              },
+              "uuid": "4e39defe-6867-4240-b73d-c7e38ca439bc",
+              "parentUUID": "15e009cd-b542-4739-864c-5df2ed7303b1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test 999",
+              "fullTitle": "Test suite Test 999",
+              "timedOut": null,
+              "duration": 596,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "expect('true').to.be('false');",
+              "err": {
+                "message": "TypeError: expect(...).to.be is not a function",
+                "estack": "TypeError: expect(...).to.be is not a function\n    at Context.eval (https://github.com/__cypress/tests?p=tests/some-test/experiment.spec.ts:106:27)",
+                "diff": null
+              },
+              "uuid": "a5dd9d5c-4b53-4428-8629-f288b8bcd561",
+              "parentUUID": "15e009cd-b542-4739-864c-5df2ed7303b1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test xxx",
+              "fullTitle": "Test suite Test xxx",
+              "timedOut": null,
+              "duration": 289,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect({ a: 3, b: 3 }).to.deep.include({ a: 3, b: 3 });",
+              "err": {},
+              "uuid": "b874dfff-11b5-4cfc-a0c0-4a81e2cc24d7",
+              "parentUUID": "15e009cd-b542-4739-864c-5df2ed7303b1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b874dfff-11b5-4cfc-a0c0-4a81e2cc24d7"
+          ],
+          "failures": [
+            "2de758d2-d0c3-4040-ac6e-dbc9549d85b9",
+            "4e39defe-6867-4240-b73d-c7e38ca439bc",
+            "a5dd9d5c-4b53-4428-8629-f288b8bcd561"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1659,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "test-results",
+        "overwrite": true,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

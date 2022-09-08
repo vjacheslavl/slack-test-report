@@ -1,0 +1,27 @@
+name: 'Create test report summary'
+description: 'Creates short summary for Slack and Github'
+author: 'Vjaceslavs Lukasevics'
+inputs:
+  reportPath:
+    description: "path to test report"
+    required: true
+  failedOnlyForSlack:
+    description: "Report only failed tests for Slack (true|false). By default it is 'false' - reports all tests"
+    required: false
+  failedOnlyForGithub:
+    description: "Report only failed tests for Github (true|false). By default it is 'false' - reports all tests"
+    required: false
+  cleanSpecifcPhrases:
+    description: "Coma separated list of phrases to remove from error messages"
+    required: false
+  maxLength:
+    description: "Max characters count for the Slack output"
+    required: false
+outputs:
+  slackReport:
+    description: "Report in Slack format"
+  githubReport:
+    description: "Report in Github format"
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
